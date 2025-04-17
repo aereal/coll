@@ -3,6 +3,8 @@
 
 # coll
 
+Package **coll** provides utilities for collection types.
+
 ## Install
 
 ```sh
