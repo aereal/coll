@@ -17,6 +17,9 @@ jobs:
       actions: read
       contents: read
       pull-requests: write
+    env:
+      AQUA_CONFIG: ${{ github.workspace }}/aqua.yaml
+      AQUA_POLICY_CONFIG: ${{ github.workspace }}/aqua-policy.yaml
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: actions/setup-go@cd53bc84d5e2fd85362f4cb840513e06427082d3 # v4.2.0
@@ -28,7 +31,16 @@ jobs:
       - name: test
         run: |
           make coverage
-      - uses: k1LoW/octocov-action@73d561f65d59e66899ed5c87e4621a913b5d5c20 # v1.5.0
+      - uses: aquaproj/aqua-installer@5e54e5cee8a95ee2ce7c04cb993da6dfad13e59c # v3.1.2
+        with:
+          aqua_version: v2.43.3
+      - run: aqua install
+      -
+        name: octocov
+        env:
+          OCTOCOV_GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          aqua exec -- octocov
   lint:
     runs-on: ubuntu-24.04
     permissions:

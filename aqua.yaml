@@ -7,3 +7,4 @@ packages:
   - name: golangci/golangci-lint@v2.1.2
   - name: reviewdog/reviewdog@v0.20.3
   - name: Songmu/tagpr@v1.5.1
+  - name: k1LoW/octocov@v0.65.2
