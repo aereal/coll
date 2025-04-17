@@ -6,7 +6,11 @@ import (
 )
 
 func NewOrderedSet[E comparable](els ...E) *OrderedSet[E] {
-	s := &OrderedSet[E]{existence: map[E]struct{}{}}
+	s := &OrderedSet[E]{
+		existence: map[E]struct{}{},
+		mux:       sync.RWMutex{},
+		values:    []E{},
+	}
 	for _, v := range els {
 		s.unsafeAppend(v)
 	}
