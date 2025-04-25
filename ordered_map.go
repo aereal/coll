@@ -24,14 +24,23 @@ type OrderedMap[K comparable, V any] struct {
 	mux   sync.RWMutex
 }
 
+func (m *OrderedMap[K, V]) unsafeGet(key K) (V, bool) {
+	val, ok := m.dirty[key]
+	return val, ok
+}
+
 // Get retrieves the value associated with the given key.
 // The second return value indicates whether the key was found.
 // It is safe for concurrent use.
 func (m *OrderedMap[K, V]) Get(key K) (V, bool) {
 	m.mux.RLock()
 	defer m.mux.RUnlock()
-	val, ok := m.dirty[key]
-	return val, ok
+	return m.unsafeGet(key)
+}
+
+func (m *OrderedMap[K, V]) unsafePut(key K, value V) {
+	m.dirty[key] = value
+	m.keys = append(m.keys, key)
 }
 
 // Put inserts the key-value pair into the map if the key does not already exist.
@@ -42,8 +51,16 @@ func (m *OrderedMap[K, V]) Put(key K, value V) {
 	if _, found := m.dirty[key]; found {
 		return
 	}
-	m.dirty[key] = value
-	m.keys = append(m.keys, key)
+	m.unsafePut(key, value)
+}
+
+// Update updates the value associated with the key using the provided function.
+// The updater function receives the current value (or zero value if not found) and a boolean indicating existence.
+// It is safe for concurrent use.
+func (m *OrderedMap[K, V]) Update(key K, update func(prev V, alreadyExist bool) V) {
+	m.mux.Lock()
+	defer m.mux.Unlock()
+	m.unsafePut(key, update(m.unsafeGet(key)))
 }
 
 func (m *OrderedMap[K, V]) unsafeKeysIterator() iter.Seq[K] {
