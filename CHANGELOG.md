@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.2.0](https://github.com/aereal/coll/compare/v0.1.1...v0.2.0) - 2025-04-25
+- feat: add OrderedMap by @aereal in https://github.com/aereal/coll/pull/10
+
 ## [v0.1.1](https://github.com/aereal/coll/compare/v0.1.0...v0.1.1) - 2025-04-21
 - build: 1.23 is enough by @aereal in https://github.com/aereal/coll/pull/8
 
