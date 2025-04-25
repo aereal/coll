@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.3.0](https://github.com/aereal/coll/compare/v0.2.0...v0.3.0) - 2025-04-25
+- feat: add OrderedMap.Update() by @aereal in https://github.com/aereal/coll/pull/12
+
 ## [v0.2.0](https://github.com/aereal/coll/compare/v0.1.1...v0.2.0) - 2025-04-25
 - feat: add OrderedMap by @aereal in https://github.com/aereal/coll/pull/10
 
