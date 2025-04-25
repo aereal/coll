@@ -113,3 +113,30 @@ func TestOrderedMap_All(t *testing.T) {
 		t.Errorf("All (values): got %v, want %v", gotVals, wantVals)
 	}
 }
+
+func TestOrderedMap_Update(t *testing.T) {
+	m := coll.NewOrderedMap[string, int]()
+	m.Put("a", 1)
+
+	m.Update("a", func(prev int, ok bool) int {
+		if ok {
+			return prev + 5
+		}
+		return 100
+	})
+	got, _ := m.Get("a")
+	if got != 6 {
+		t.Errorf("Update existing key: got %v, want 6", got)
+	}
+
+	m.Update("b", func(prev int, ok bool) int {
+		if !ok {
+			return 42
+		}
+		return prev
+	})
+	got, _ = m.Get("b")
+	if got != 42 {
+		t.Errorf("Update new key: got %v, want 42", got)
+	}
+}
