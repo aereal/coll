@@ -2,6 +2,7 @@ package coll
 
 import (
 	"iter"
+	"slices"
 	"sync"
 )
 
@@ -71,4 +72,15 @@ func (s *OrderedSet[E]) Values() iter.Seq[E] {
 			}
 		}
 	}
+}
+
+func (s *OrderedSet[E]) Remove(removedEl E) {
+	s.mux.Lock()
+	defer s.mux.Unlock()
+	if !s.unsafeContains(removedEl) {
+		// short circuit
+		return
+	}
+	delete(s.existence, removedEl)
+	s.values = slices.DeleteFunc(s.values, func(e E) bool { return e == removedEl })
 }

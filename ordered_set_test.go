@@ -35,6 +35,22 @@ func TestOrderedSet(t *testing.T) {
 	if gotLen := strSet.Len(); gotLen != 4 {
 		t.Errorf("Len() returns unexpected value: %d", gotLen)
 	}
+	strSet.Remove("a")
+	if gotLen := strSet.Len(); gotLen != 3 {
+		t.Errorf("Len() returns unexpected value: %d", gotLen)
+	}
+	if strSet.Contains("a") {
+		t.Error("the set says it DOES contain 'a'")
+	}
+
+	// try to remove the element that is not in the set
+	strSet.Remove("a")
+	if gotLen := strSet.Len(); gotLen != 3 {
+		t.Errorf("Len() returns unexpected value: %d", gotLen)
+	}
+	if strSet.Contains("a") {
+		t.Error("the set says it DOES contain 'a'")
+	}
 }
 
 func TestOrderedSet_empty(t *testing.T) {
