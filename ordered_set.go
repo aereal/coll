@@ -88,52 +88,20 @@ func (s *OrderedSet[E]) Remove(removedEl E) {
 // Diff returns a new OrderedSet containing elements that are in s or other but not in both.
 func (s *OrderedSet[E]) Diff(other *OrderedSet[E]) *OrderedSet[E] {
 	ret := NewOrderedSet[E]()
-	lhs := s
-	rhs := other
-	if lhs.Len() < rhs.Len() {
-		lhs = other
-		rhs = s
-	}
-	for lv := range lhs.Values() {
-		if !rhs.Contains(lv) {
-			ret.unsafeAppend(lv)
-		}
-	}
+	buildDiff(ret, s, other)
 	return ret
 }
 
 // Intersect returns a new OrderedSet containing elements that are present in both s and other.
 func (s *OrderedSet[E]) Intersect(other *OrderedSet[E]) *OrderedSet[E] {
 	ret := NewOrderedSet[E]()
-	lhs := s
-	rhs := other
-	if lhs.Len() < rhs.Len() {
-		lhs = other
-		rhs = s
-	}
-	for lv := range lhs.Values() {
-		if rhs.Contains(lv) {
-			ret.unsafeAppend(lv)
-		}
-	}
+	buildIntersection(ret, s, other)
 	return ret
 }
 
 // Union returns a new OrderedSet containing all elements from both s and other.
 func (s *OrderedSet[E]) Union(other *OrderedSet[E]) *OrderedSet[E] {
 	ret := NewOrderedSet[E]()
-
-	s.mux.Lock()
-	for _, v := range s.values {
-		ret.unsafeAppend(v)
-	}
-	s.mux.Unlock()
-
-	other.mux.Lock()
-	for _, v := range other.values {
-		ret.unsafeAppend(v)
-	}
-	other.mux.Unlock()
-
+	buildUnion(ret, s, other)
 	return ret
 }

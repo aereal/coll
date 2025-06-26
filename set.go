@@ -83,52 +83,20 @@ func (s *Set[E]) Remove(removedEl E) {
 // Diff returns a new [Set] containing elements that are in s or other but not in both.
 func (s *Set[E]) Diff(other *Set[E]) *Set[E] {
 	ret := NewSet[E]()
-	lhs := s
-	rhs := other
-	if lhs.Len() < rhs.Len() {
-		lhs = other
-		rhs = s
-	}
-	for lv := range lhs.Values() {
-		if !rhs.Contains(lv) {
-			ret.unsafeAppend(lv)
-		}
-	}
+	buildDiff(ret, s, other)
 	return ret
 }
 
 // Intersect returns a new [Set] containing elements that are present in both s and other.
 func (s *Set[E]) Intersect(other *Set[E]) *Set[E] {
 	ret := NewSet[E]()
-	lhs := s
-	rhs := other
-	if lhs.Len() < rhs.Len() {
-		lhs = other
-		rhs = s
-	}
-	for lv := range lhs.Values() {
-		if rhs.Contains(lv) {
-			ret.unsafeAppend(lv)
-		}
-	}
+	buildIntersection(ret, s, other)
 	return ret
 }
 
 // Union returns a new [Set] containing all elements from both s and other.
 func (s *Set[E]) Union(other *Set[E]) *Set[E] {
 	ret := NewSet[E]()
-
-	s.mux.Lock()
-	for v := range s.values {
-		ret.unsafeAppend(v)
-	}
-	s.mux.Unlock()
-
-	other.mux.Lock()
-	for v := range other.values {
-		ret.unsafeAppend(v)
-	}
-	other.mux.Unlock()
-
+	buildUnion(ret, s, other)
 	return ret
 }
