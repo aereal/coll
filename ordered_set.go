@@ -101,3 +101,20 @@ func (s *OrderedSet[E]) Diff(other *OrderedSet[E]) *OrderedSet[E] {
 	}
 	return ret
 }
+
+// Intersect returns a new OrderedSet containing elements that are present in both s and other.
+func (s *OrderedSet[E]) Intersect(other *OrderedSet[E]) *OrderedSet[E] {
+	ret := NewOrderedSet[E]()
+	lhs := s
+	rhs := other
+	if lhs.Len() < rhs.Len() {
+		lhs = other
+		rhs = s
+	}
+	for lv := range lhs.Values() {
+		if rhs.Contains(lv) {
+			ret.unsafeAppend(lv)
+		}
+	}
+	return ret
+}
