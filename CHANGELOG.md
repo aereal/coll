@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.5.0](https://github.com/aereal/coll/compare/v0.4.0...v0.5.0) - 2025-06-26
+- feat: add Set ops by @aereal in https://github.com/aereal/coll/pull/18
+
 ## [v0.4.0](https://github.com/aereal/coll/compare/v0.3.0...v0.4.0) - 2025-06-26
 - feat: add OrderedSet.Remove by @aereal in https://github.com/aereal/coll/pull/16
 
