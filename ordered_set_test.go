@@ -141,6 +141,50 @@ func TestOrderedSet_Intersect(t *testing.T) {
 	}
 }
 
+func TestOrderedSet_Union(t *testing.T) {
+	testCases := []struct {
+		lhs  *coll.OrderedSet[string]
+		rhs  *coll.OrderedSet[string]
+		want *coll.OrderedSet[string]
+		name string
+	}{
+		{
+			name: "empty vs empty",
+			lhs:  coll.NewOrderedSet[string](),
+			rhs:  coll.NewOrderedSet[string](),
+			want: coll.NewOrderedSet[string](),
+		},
+		{
+			name: "lhs == rhs",
+			lhs:  coll.NewOrderedSet("a", "b", "c"),
+			rhs:  coll.NewOrderedSet("a", "b", "c"),
+			want: coll.NewOrderedSet("a", "b", "c"),
+		},
+		{
+			name: "lhs > rhs",
+			lhs:  coll.NewOrderedSet("a", "b", "c"),
+			rhs:  coll.NewOrderedSet("d"),
+			want: coll.NewOrderedSet("a", "b", "c", "d"),
+		},
+		{
+			name: "lhs < rhs",
+			lhs:  coll.NewOrderedSet("d"),
+			rhs:  coll.NewOrderedSet("a", "b", "c"),
+			want: coll.NewOrderedSet("d", "a", "b", "c"),
+		},
+	}
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			got := tc.lhs.Union(tc.rhs)
+			gotSlice := slices.Collect(got.Values())
+			wantSlice := slices.Collect(tc.want.Values())
+			if !reflect.DeepEqual(wantSlice, gotSlice) {
+				t.Errorf("mismatch:\n\twant: %#v\n\t got: %#v", wantSlice, gotSlice)
+			}
+		})
+	}
+}
+
 func TestOrderedSet_empty(t *testing.T) {
 	nums := new(coll.OrderedSet[int])
 	if got := nums.Contains(42); got {

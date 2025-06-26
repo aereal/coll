@@ -118,3 +118,22 @@ func (s *OrderedSet[E]) Intersect(other *OrderedSet[E]) *OrderedSet[E] {
 	}
 	return ret
 }
+
+// Union returns a new OrderedSet containing all elements from both s and other.
+func (s *OrderedSet[E]) Union(other *OrderedSet[E]) *OrderedSet[E] {
+	ret := NewOrderedSet[E]()
+
+	s.mux.Lock()
+	for _, v := range s.values {
+		ret.unsafeAppend(v)
+	}
+	s.mux.Unlock()
+
+	other.mux.Lock()
+	for _, v := range other.values {
+		ret.unsafeAppend(v)
+	}
+	other.mux.Unlock()
+
+	return ret
+}
