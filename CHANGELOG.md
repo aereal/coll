@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.6.0](https://github.com/aereal/coll/compare/v0.5.0...v0.6.0) - 2025-06-26
+- feat: add Set and generic operations by @aereal in https://github.com/aereal/coll/pull/20
+
 ## [v0.5.0](https://github.com/aereal/coll/compare/v0.4.0...v0.5.0) - 2025-06-26
 - feat: add Set ops by @aereal in https://github.com/aereal/coll/pull/18
 
