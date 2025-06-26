@@ -84,3 +84,20 @@ func (s *OrderedSet[E]) Remove(removedEl E) {
 	delete(s.existence, removedEl)
 	s.values = slices.DeleteFunc(s.values, func(e E) bool { return e == removedEl })
 }
+
+// Diff returns a new OrderedSet containing elements that are in s or other but not in both.
+func (s *OrderedSet[E]) Diff(other *OrderedSet[E]) *OrderedSet[E] {
+	ret := NewOrderedSet[E]()
+	lhs := s
+	rhs := other
+	if lhs.Len() < rhs.Len() {
+		lhs = other
+		rhs = s
+	}
+	for lv := range lhs.Values() {
+		if !rhs.Contains(lv) {
+			ret.unsafeAppend(lv)
+		}
+	}
+	return ret
+}
