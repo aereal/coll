@@ -3,6 +3,8 @@
 
 # coll
 
+![logo](./docs/assets/logo.svg)
+
 Package **coll** provides utilities for collection types.
 
 ## Install
