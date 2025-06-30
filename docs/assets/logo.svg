@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ADD8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#087990;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5DC9E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00ADD8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#5DC9E2;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#gradient1)" stroke="#087990" stroke-width="2"/>
+  
+  <!-- Collection containers -->
+  <g transform="translate(40, 50)">
+    <!-- Set representation - hexagonal pattern -->
+    <g transform="translate(0, 20)">
+      <polygon points="15,0 25,6 25,18 15,24 5,18 5,6" fill="url(#gradient2)" opacity="0.9"/>
+      <polygon points="35,10 45,16 45,28 35,34 25,28 25,16" fill="url(#gradient2)" opacity="0.8"/>
+      <polygon points="15,30 25,36 25,48 15,54 5,48 5,36" fill="url(#gradient2)" opacity="0.7"/>
+      <polygon points="35,40 45,46 45,58 35,64 25,58 25,46" fill="url(#gradient2)" opacity="0.6"/>
+    </g>
+    
+    <!-- Map representation - key-value pairs -->
+    <g transform="translate(70, 0)">
+      <!-- Keys -->
+      <rect x="0" y="10" width="15" height="15" rx="2" fill="url(#gradient3)" opacity="0.9"/>
+      <rect x="0" y="30" width="15" height="15" rx="2" fill="url(#gradient3)" opacity="0.8"/>
+      <rect x="0" y="50" width="15" height="15" rx="2" fill="url(#gradient3)" opacity="0.7"/>
+      <rect x="0" y="70" width="15" height="15" rx="2" fill="url(#gradient3)" opacity="0.6"/>
+      
+      <!-- Connection -->
+      <line x1="20" y1="17" x2="30" y2="17" stroke="white" stroke-width="1.5" opacity="0.8"/>
+      <line x1="20" y1="37" x2="30" y2="37" stroke="white" stroke-width="1.5" opacity="0.7"/>
+      <line x1="20" y1="57" x2="30" y2="57" stroke="white" stroke-width="1.5" opacity="0.6"/>
+      <line x1="20" y1="77" x2="30" y2="77" stroke="white" stroke-width="1.5" opacity="0.5"/>
+      
+      <!-- Values -->
+      <circle cx="35" cy="17" r="6" fill="white" opacity="0.9"/>
+      <circle cx="35" cy="37" r="6" fill="white" opacity="0.8"/>
+      <circle cx="35" cy="57" r="6" fill="white" opacity="0.7"/>
+      <circle cx="35" cy="77" r="6" fill="white" opacity="0.6"/>
+    </g>
+  </g>
+  
+  <!-- Central collection symbol -->
+  <g transform="translate(90, 90)">
+    <circle cx="10" cy="10" r="15" fill="none" stroke="white" stroke-width="3" opacity="0.6"/>
+    <circle cx="5" cy="5" r="2" fill="white" opacity="0.8"/>
+    <circle cx="15" cy="8" r="2" fill="white" opacity="0.8"/>
+    <circle cx="12" cy="15" r="2" fill="white" opacity="0.8"/>
+    <circle cx="6" cy="13" r="2" fill="white" opacity="0.8"/>
+  </g>
+  
+  <!-- Library name -->
+  <text x="100" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">coll</text>
+  
+  <!-- Description -->
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" opacity="0.8">Go collections</text>
+  
+  <!-- Go logo accent -->
+  <g transform="translate(160, 25)">
+    <ellipse cx="0" cy="0" rx="8" ry="5" fill="white" opacity="0.9"/>
+    <ellipse cx="0" cy="0" rx="5" ry="3" fill="#00ADD8"/>
+  </g>
+</svg>
