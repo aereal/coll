@@ -191,3 +191,12 @@ func TestOrderedSet_empty(t *testing.T) {
 		t.Errorf("Contains(42) reports true unexpectedly")
 	}
 }
+
+func TestOrderedSet_nilness(t *testing.T) {
+	var concreteNil *coll.OrderedSet[string]
+	func(s coll.SetLike[string]) {
+		_ = s.Len()
+		_ = s.Contains("")
+		_ = slices.Collect(s.Values())
+	}(concreteNil)
+}

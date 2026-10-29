@@ -29,11 +29,21 @@ type OrderedSet[E comparable] struct {
 }
 
 // Len returns the number of elements in the set.
-func (s *OrderedSet[E]) Len() int { return len(s.values) }
+func (s *OrderedSet[E]) Len() int {
+	if s == nil {
+		return 0
+	}
+
+	return len(s.values)
+}
 
 // Contains reports whether the element is present in the set.
 // It is safe for concurrent use.
 func (s *OrderedSet[E]) Contains(el E) bool {
+	if s == nil {
+		return false
+	}
+
 	s.mux.RLock()
 	defer s.mux.RUnlock()
 	return s.unsafeContains(el)
@@ -50,6 +60,10 @@ func (s *OrderedSet[E]) unsafeContains(el E) bool {
 // Append adds the element to the set if it does not already exist.
 // The insertion order is preserved. It is safe for concurrent use.
 func (s *OrderedSet[E]) Append(el E) {
+	if s == nil {
+		return
+	}
+
 	s.mux.Lock()
 	defer s.mux.Unlock()
 	s.unsafeAppend(el)
@@ -65,6 +79,10 @@ func (s *OrderedSet[E]) unsafeAppend(el E) {
 
 // Values returns an iterator over the elements of the set in insertion order.
 func (s *OrderedSet[E]) Values() iter.Seq[E] {
+	if s == nil {
+		return func(_ func(E) bool) {}
+	}
+
 	return func(yield func(E) bool) {
 		for _, el := range s.values {
 			if !yield(el) {
@@ -75,6 +93,10 @@ func (s *OrderedSet[E]) Values() iter.Seq[E] {
 }
 
 func (s *OrderedSet[E]) Remove(removedEl E) {
+	if s == nil {
+		return
+	}
+
 	s.mux.Lock()
 	defer s.mux.Unlock()
 	if !s.unsafeContains(removedEl) {
