@@ -9,13 +9,19 @@ jobs:
     runs-on: ubuntu-26.04
     permissions:
       contents: write
+      issues: read
       pull-requests: write
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Generate token
+        id: generate_token
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         with:
-          persist-credentials: false
-          token: ${{ secrets.TAGPR_GITHUB_PAT }}
+          client-id: ${{ secrets.APP_CLIENT_ID }}
+          permission-contents: write
+          permission-issues: read
+          permission-pull-requests: write
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
       - uses: aquaproj/aqua-installer@611554c6f0137ba41c8dd15aca8bee82504ea461 # v4.1.1
         with:
           aqua_version: v2.65.2
@@ -23,4 +29,4 @@ jobs:
       - name: run tagpr
         run: tagpr
         env:
-          GITHUB_TOKEN: ${{ secrets.TAGPR_GITHUB_PAT }}
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
