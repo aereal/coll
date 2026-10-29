@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.7.0](https://github.com/aereal/coll/compare/v0.6.0...v0.7.0) - 2026-10-29
+
+- docs: add logo by @aereal in https://github.com/aereal/coll/pull/22
+- chore: update tools by @aereal in https://github.com/aereal/coll/pull/29
+- fix: make Set and OrderedSet methods safe to call on nil receivers by @aereal in https://github.com/aereal/coll/pull/28
+- ci: use actions/create-github-app-token by @aereal in https://github.com/aereal/coll/pull/30
+- ci: specify aqua config and policy by @aereal in https://github.com/aereal/coll/pull/31
+- ci: add actions/checkout by @aereal in https://github.com/aereal/coll/pull/32
+
 ## [v0.6.0](https://github.com/aereal/coll/compare/v0.5.0...v0.6.0) - 2025-06-26
 - feat: add Set and generic operations by @aereal in https://github.com/aereal/coll/pull/20
 
