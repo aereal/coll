@@ -191,3 +191,12 @@ func TestSet_empty(t *testing.T) {
 		t.Errorf("Contains(42) reports true unexpectedly")
 	}
 }
+
+func TestSet_nilness(t *testing.T) {
+	var concreteNil *coll.Set[string]
+	func(s coll.SetLike[string]) {
+		_ = s.Len()
+		_ = s.Contains("")
+		_ = slices.Collect(s.Values())
+	}(concreteNil)
+}
