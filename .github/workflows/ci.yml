@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-slim
     if: failure()
     permissions: {}
+    timeout-minutes: 5
     needs:
       - test
       - lint
@@ -21,6 +22,7 @@ jobs:
     env:
       AQUA_CONFIG: ${{ github.workspace }}/aqua.yaml
       AQUA_POLICY_CONFIG: ${{ github.workspace }}/aqua-policy.yaml
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -54,6 +56,7 @@ jobs:
     env:
       AQUA_CONFIG: ${{ github.workspace }}/aqua.yaml
       AQUA_POLICY_CONFIG: ${{ github.workspace }}/aqua-policy.yaml
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
