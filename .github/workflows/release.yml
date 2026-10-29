@@ -12,6 +12,9 @@ jobs:
       issues: read
       pull-requests: write
     timeout-minutes: 15
+    env:
+      AQUA_CONFIG: ${{ github.workspace }}/aqua.yaml
+      AQUA_POLICY_CONFIG: ${{ github.workspace }}/aqua-policy.yaml
     steps:
       - name: Generate token
         id: generate_token
