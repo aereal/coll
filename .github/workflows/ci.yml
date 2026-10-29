@@ -6,6 +6,7 @@ jobs:
   ok:
     runs-on: ubuntu-slim
     if: failure()
+    permissions: {}
     needs:
       - test
       - lint
