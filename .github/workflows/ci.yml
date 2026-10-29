@@ -4,7 +4,7 @@ on:
   pull_request:
 jobs:
   ok:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-slim
     if: failure()
     needs:
       - test
@@ -12,7 +12,7 @@ jobs:
     steps:
       - run: exit 1
   test:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       actions: read
       contents: read
@@ -42,7 +42,7 @@ jobs:
         run: |
           aqua exec -- octocov
   lint:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       actions: read
       contents: read
