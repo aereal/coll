@@ -1,23 +1,23 @@
 {
   "checksums": [
     {
-      "id": "github_release/github.com/Songmu/tagpr/v1.21.4/tagpr_v1.21.4_darwin_amd64.zip",
-      "checksum": "45E4C974C80FACCECAD8615985D48AC7C70A7126066BE520C92DF2618F5C710C",
+      "id": "github_release/github.com/Songmu/tagpr/v1.22.0/tagpr_v1.22.0_darwin_amd64.zip",
+      "checksum": "47273D57B7A74209B9E56DE567B5E1E794BE585F70D49C2C6E4B8F9C417A0705",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Songmu/tagpr/v1.21.4/tagpr_v1.21.4_darwin_arm64.zip",
-      "checksum": "8B382D181F7C7493A86E1737A75E5056F7EB3885F155ADBEBCE785212553B88A",
+      "id": "github_release/github.com/Songmu/tagpr/v1.22.0/tagpr_v1.22.0_darwin_arm64.zip",
+      "checksum": "0106D0C9AFD73B43E8D9542EDFBDB7868BCD383D5A2959190D4C1187F100D2E6",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Songmu/tagpr/v1.21.4/tagpr_v1.21.4_linux_amd64.tar.gz",
-      "checksum": "22B5DA4F3D19D8E06770DC0C897B026867B63D52D47A79A1AF86060BF4577D8A",
+      "id": "github_release/github.com/Songmu/tagpr/v1.22.0/tagpr_v1.22.0_linux_amd64.tar.gz",
+      "checksum": "65B8F5177055BCEE533455153DD8B5521BF233C732F2B2A7176AB7344B31CF21",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Songmu/tagpr/v1.21.4/tagpr_v1.21.4_linux_arm64.tar.gz",
-      "checksum": "AC3459A29459465C526C8AE18A67C6C90C512DD83CF1704AD0B14F1AD3458E0D",
+      "id": "github_release/github.com/Songmu/tagpr/v1.22.0/tagpr_v1.22.0_linux_arm64.tar.gz",
+      "checksum": "3997C5D5D5BFF4B9ED2CE82240CEF70DC935ACF5D44E6A4871F16813FCA74FE4",
       "algorithm": "sha256"
     },
     {
@@ -51,38 +51,38 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/k1LoW/octocov/v0.83.4/octocov_v0.83.4_darwin_amd64.zip",
-      "checksum": "C279359B963EF24A21915BBCE8D0AF035E4AE317BB31D55990C4B1CAB5F5995F",
+      "id": "github_release/github.com/k1LoW/octocov/v0.83.5/octocov_v0.83.5_darwin_amd64.zip",
+      "checksum": "F9AB2B5C6996DE5005BEA809046E479ED47FA6B6A7C957E41AEB40DC12E1D0EC",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/k1LoW/octocov/v0.83.4/octocov_v0.83.4_darwin_arm64.zip",
-      "checksum": "7DC191EFFD1B1E4E8CC85ABBA95197F8AF813DEADD7E1B04981E3866D0026701",
+      "id": "github_release/github.com/k1LoW/octocov/v0.83.5/octocov_v0.83.5_darwin_arm64.zip",
+      "checksum": "31CEE98C5C21F5C4E07A30DF13456DAA6BBA73CC666875831F9207A73BBDC20B",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/k1LoW/octocov/v0.83.4/octocov_v0.83.4_linux_amd64.tar.gz",
-      "checksum": "238EA9AB3D3FA089448B18EE6D5D84F74F785FD03BE4C8761E2FB455372B86F1",
+      "id": "github_release/github.com/k1LoW/octocov/v0.83.5/octocov_v0.83.5_linux_amd64.tar.gz",
+      "checksum": "3AA6973A8E68036B640DAC6EF0C5456DDA12289C7ABBDAF7B919A036555D8E9C",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/k1LoW/octocov/v0.83.4/octocov_v0.83.4_linux_arm64.tar.gz",
-      "checksum": "90794261F8AC52FE475B3592C92EB3DBEB8F01C970B6E7AD5B275D3B47272BE2",
+      "id": "github_release/github.com/k1LoW/octocov/v0.83.5/octocov_v0.83.5_linux_arm64.tar.gz",
+      "checksum": "FCE0C42AF4BFBCB2FDB8F5961E2A3992BC4FBF46051E89835C3ED4C440C2EC03",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/k1LoW/octocov/v0.83.4/octocov_v0.83.4_windows_amd64.zip",
-      "checksum": "E4F6EE1B5E054637D71A7B846BBAA8290A0017936422FDAAD0E7BB914225E88C",
+      "id": "github_release/github.com/k1LoW/octocov/v0.83.5/octocov_v0.83.5_windows_amd64.zip",
+      "checksum": "B971A865539C4EC08D79BCA098E56DDB9E48A192C023619A50DA6267ED2ADDF1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/k1LoW/octocov/v0.83.4/octocov_v0.83.4_windows_arm64.zip",
-      "checksum": "AF4CF57D40557CC24F5FA9BB746E617C8EADA60312D4991626CCE6F4C58E2D80",
+      "id": "github_release/github.com/k1LoW/octocov/v0.83.5/octocov_v0.83.5_windows_arm64.zip",
+      "checksum": "46E946C64B3F966F38714EEA73B183E154EB2A46EED971F47CE40ED491F08E37",
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.579.0/registry.yaml",
-      "checksum": "5BC609335C3E930F66B52E4EF44824852868C88898137557B078570C3CE9DF94",
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.588.0/registry.yaml",
+      "checksum": "BC6F4385719B0ACCFB43FC1BE4A8813C63F245AAC3F89EC8A84081CF047B87E5",
       "algorithm": "sha256"
     }
   ]
